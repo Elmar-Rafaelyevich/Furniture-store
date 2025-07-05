@@ -1,0 +1,128 @@
+[
+    {
+        "model": "goods.products",
+        "pk": 1,
+        "fields": {
+            "name": "Чайный столик и три стула'",
+            "slug": "chajnyj-stolik-i-tri-stula",
+            "desc": "Комплект из трёх стульев и дизайнерский столик для гостинной комнаты.",
+            "image": "",
+            "price": "150.00",
+            "discount": "0.00",
+            "quantity": 10,
+            "category": 3
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 2,
+        "fields": {
+            "name": "Двухспальная кровать",
+            "slug": "dvuhspalnaya-krovat",
+            "desc": "Кровать двухспальная с надголовником и вообще очень ортопедичная",
+            "image": "",
+            "price": "670.00",
+            "discount": "15.00",
+            "quantity": 5,
+            "category": 4
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 3,
+        "fields": {
+            "name": "Кухонный стол с раковиной",
+            "slug": "kuhonnyj-stol-s-rakovinoj",
+            "desc": "Кухонный стол для обеда с встроенной раковиной и стульями.",
+            "image": "",
+            "price": "500.00",
+            "discount": "0.00",
+            "quantity": 3,
+            "category": 3
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 4,
+        "fields": {
+            "name": "Кухонный стол с встройкой",
+            "slug": "kuhonnyj-stol-s-vstrojkoj",
+            "desc": "Кухонный стол со встроенной плитой и раковиной. Много полок и вообще красивый",
+            "image": "",
+            "price": "430.00",
+            "discount": "8.00",
+            "quantity": 45,
+            "category": 3
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 5,
+        "fields": {
+            "name": "Угловой диван для гостинной",
+            "slug": "uglovoj-divan-dlya-gostinnoj",
+            "desc": "Угловой диван, раскладывается в двухспальную кровать, для гостинной и приема гостей самое то!",
+            "image": "",
+            "price": "610.00",
+            "discount": "27.00",
+            "quantity": 145,
+            "category": 5
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 6,
+        "fields": {
+            "name": "Прикроватный столик",
+            "slug": "prikrovatnyj-stolik",
+            "desc": "Прикроватный столик с двумя выдвижными ящиками (цветок не входит в комплект).",
+            "image": "",
+            "price": "55.00",
+            "discount": "0.00",
+            "quantity": 77,
+            "category": 7
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 7,
+        "fields": {
+            "name": "Диван обыкновенный",
+            "slug": "divan-obyknovennyj",
+            "desc": "Диван, он же софа обыкновенная, ничего примечательного для описания.",
+            "image": "",
+            "price": "1560.00",
+            "discount": "0.00",
+            "quantity": 0,
+            "category": 8
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 8,
+        "fields": {
+            "name": "Стул офисный",
+            "slug": "stul-ofisnyj",
+            "desc": "Описание товара, про то какой он классный, но это стул, что тут сказать...",
+            "image": "",
+            "price": "30.00",
+            "discount": "12.00",
+            "quantity": 19,
+            "category": 6
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 9,
+        "fields": {
+            "name": "Цветок стилизированный",
+            "slug": "cvetok-stilizirovannyj",
+            "desc": "Дизайнерский цветок (возможно искусственный) для украшения интерьера.",
+            "image": "",
+            "price": "120.00",
+            "discount": "5.00",
+            "quantity": 97,
+            "category": 8
+        }
+    }
+]
