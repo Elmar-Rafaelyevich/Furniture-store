@@ -1,4 +1,5 @@
 {% extends "shop/base.html" %} {% load static %} {% block content %}
+{% load goods_tags %}
 <div class="row">
   <!-- Форма фильтров -->
   <div class="dropdown mb-2">
@@ -11,7 +12,7 @@
       Фильтры
     </button>
     <form
-      action=""
+      action="{% url 'catalog:index' slug_url %}"
       method="get"
       class="dropdown-menu bg-dark"
       data-bs-theme="dark"
@@ -22,9 +23,10 @@
           type="checkbox"
           name="on_sale"
           id="flexCheckDefault"
-          value="on"
-        />
-        <input type="hidden" name="q" value="request.GET.q" />
+          value="on" {% if request.GET.on_sale == 'on' %} checked {% endif %}>
+       {% comment "" %}
+       <input type="hidden" name="q" value="request.GET.q" />
+       {% endcomment %} 
         <label class="form-check-label" for="flexCheckDefault">
           Товары по акции
         </label>
@@ -37,8 +39,8 @@
           name="order_by"
           id="flexRadioDefault1"
           value="default"
-          checked
-        />
+          {% if not request.GET.order_by or request.GET.order == 'default' %} checked {% else %}
+          {% endif %}>
         <label class="form-check-label" for="flexRadioDefault1">
           По умолчанию
         </label>
@@ -49,8 +51,7 @@
           type="radio"
           name="order_by"
           id="flexRadioDefault2"
-          value="price"
-        />
+          value="price"  {% if request.GET.order_by == 'price' %} checked {% endif %}>
         <label class="form-check-label" for="flexRadioDefault2">
           От дешевых к дорогим
         </label>
@@ -61,8 +62,7 @@
           type="radio"
           name="order_by"
           id="flexRadioDefault3"
-          value="-price"
-        />
+          value="-price" {% if request.GET.order_by == '-price' %} checked {% endif %}>
         <label class="form-check-label" for="flexRadioDefault3">
           От дорогих к дешевым
         </label>
@@ -131,7 +131,7 @@
       >
         <a
           class="page-link"
-          href="{% if goods.has_previous %} {% url 'catalog:index' slug_url goods.previous_page_number%} 
+          href="{% if goods.has_previous %} ?{% change_params page=goods.previous_page_number %}
         {% else %}
           #
         {% endif %}"
@@ -141,7 +141,7 @@
       {% for page in goods.paginator.page_range %}
           {% if page >= goods.number|add:"-2" and page <= goods.number|add:"2" %}
             <li class="page-item {% if goods.number == page %} active {% endif %}">
-              <a class="page-link" href="{% url 'catalog:index' slug_url page %}">{{ page }}</a>
+              <a class="page-link" href="?{% change_params page=page%}">{{ page }}</a>
             </li>
           {% endif %}
       {% endfor %}
@@ -151,7 +151,7 @@
       <li class="page-item {% if not goods.has_next %} disabled {% endif %}">
         <a
           class="page-link"
-          href="{% if goods.has_next %} {% url 'catalog:index' slug_url goods.next_page_number%} 
+          href="{% if goods.has_next %} ?{% change_params page=goods.next_page_number%}
         {% else %}
           #
         {% endif %}"
