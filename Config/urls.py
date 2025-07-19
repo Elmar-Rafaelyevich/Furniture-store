@@ -10,7 +10,9 @@ urlpatterns = [
     # shop приложение
     path('', include('shop.urls', namespace='shop')),
     # goods приложение
-    path('catalog/',include('goods.urls', namespace='catalog'))
+    path('catalog/',include('goods.urls', namespace='catalog')),
+    # users приложение
+    path('user/',include('users.urls', namespace='user')),
 
 ]
 
