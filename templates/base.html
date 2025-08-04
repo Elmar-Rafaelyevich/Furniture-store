@@ -88,10 +88,12 @@
                   >Корзина</a
                 >
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="{% url 'user:login' %}">Войти</a>
-              </li>
-              <li class="nav-item dropdown">
+              {% if not user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'user:login' %}">Войти</a>
+                  </li>
+              {% else %}
+                  <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle text-white"
                   href="#"
@@ -115,13 +117,16 @@
                       >Личный кабинет</a
                     >
                   </li>
-                  <li>
-                    <a
-                      class="dropdown-item text-white"
-                      href="{% url 'admin:index' %}"
-                      >Админ панель</a
-                    >
-                  </li>
+                  {% if  user.is_admin or user.is_staff%}
+                    <li>
+                      <a
+                        class="dropdown-item text-white"
+                        href="{% url 'admin:index' %}"
+                        >Админ панель</a>
+                    </li>
+
+                  {% endif %}
+                  
                   <li>
                     <hr class="dropdown-divider" />
                   </li>
@@ -130,6 +135,9 @@
                   </li>
                 </ul>
               </li>
+              {% endif %}
+
+              
             </ul>
             <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method="get">
               <input name="q"
@@ -308,6 +316,7 @@
           </div>
           <div class="col-lg-10">
             <!-- Контент на странице -->
+            {% include "includes/notifications.html" %}
             {% block content %} {% endblock content %}
           </div>
         </div>
