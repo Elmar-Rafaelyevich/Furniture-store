@@ -13,6 +13,9 @@ urlpatterns = [
     path('catalog/',include('goods.urls', namespace='catalog')),
     # users приложение
     path('user/',include('users.urls', namespace='user')),
+    # carts приложение
+    path('cart/',include('carts.urls', namespace='cart')),
+    
 
 ]
 

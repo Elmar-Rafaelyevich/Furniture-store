@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from users.models import User
 
 
@@ -81,3 +81,35 @@ class UserRegistrationForm(UserCreationForm):
         #         'class':'form-control',
         #         'placeholder':'Подтвердите пароль'}))
         
+class ProfileForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'image',
+            'first_name',
+            'last_name',
+            'email'
+        )
+
+        image = forms.ImageField(required=False)
+        first_name = forms.CharField()
+        last_name = forms.CharField()
+        username = forms.CharField()
+        email = forms.EmailField()
+
+        # image = forms.ImageField(
+        #     widget=forms.FileInput(attrs={'class':'form-control mt-3'}), required=False)
+       
+        # first_name = forms.CharField(
+        #     widget=forms.TextInput(attrs={'class':'form-control',
+        #                                   'placeholder':'Введите ваше имя'}))
+        # last_name = forms.CharField(
+        #     widget=forms.TextInput(attrs={'class':'form-control',
+        #                                   'placeholder':'Введите вашу фамилию'}))
+        # user_name = forms.CharField(
+        #     widget=forms.TextInput(attrs={'class':'form-control',
+        #                                   'placeholder':'Введите ваше имя пользователь'}))
+        # email = forms.CharField(
+        #     widget=forms.TextInput(attrs={'class':'form-control',
+        #                                   'placeholder':'Введите вашу электронную почту'}))

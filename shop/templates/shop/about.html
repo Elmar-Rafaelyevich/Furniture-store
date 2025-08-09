@@ -6,6 +6,10 @@
   <p class="m-2">{{text_on_page}}</p>
 </div>
 
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
 {% endblock content %} {% block footer %}
 <footer class="py-4 bg-dark">
   <div class="container">
